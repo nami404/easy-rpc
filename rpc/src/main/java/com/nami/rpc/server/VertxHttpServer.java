@@ -21,13 +21,7 @@ public class VertxHttpServer implements HttpServer{
         io.vertx.core.http.HttpServer server = vertx.createHttpServer();
 
         // 处理请求
-        server.requestHandler(request -> {
-            // 处理 HTTP 请求
-            System.out.println("Received request：" + request.method() + " " + request.uri());
-
-            // 发送 HTTP 请求
-            request.response().putHeader("content-type", "text/plain").end("Hello from Vert.x HTTP server!");
-        });
+        server.requestHandler(new HttpServerHandler());
 
         //启动 HTTP 服务器并监听指定端口
         server.listen(port, httpServerAsyncResult -> {
