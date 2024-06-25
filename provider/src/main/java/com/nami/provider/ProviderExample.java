@@ -1,5 +1,8 @@
 package com.nami.provider;
 
+import com.nami.rpc.server.HttpServer;
+import com.nami.rpc.server.VertxHttpServer;
+
 /**
  * 简易服务提供者示例
  *
@@ -8,6 +11,8 @@ package com.nami.provider;
  */
 public class ProviderExample {
     public static void main(String[] args) {
-        // 之后在这里编写提供服务的代码
+        // 启动 web 服务
+        HttpServer httpServer = new VertxHttpServer();
+        httpServer.doStart(8080);
     }
 }
