@@ -10,8 +10,8 @@ import com.nami.service.UserService;
  */
 public class ConsumerExample {
     public static void main(String[] args) {
-        // todo 需要获取UserService 的实现对象
-        UserService userService = null;
+        // 静态代理
+        UserService userService = new UserServiceProxy();
         User user = new User();
         user.setName("nami404");
         // 调用
