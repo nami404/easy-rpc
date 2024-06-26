@@ -1,6 +1,7 @@
 package com.nami;
 
 import com.nami.model.User;
+import com.nami.rpc.proxy.ServiceProxyFactory;
 import com.nami.service.UserService;
 
 /**
@@ -12,6 +13,9 @@ public class ConsumerExample {
     public static void main(String[] args) {
         // 静态代理
         UserService userService = new UserServiceProxy();
+
+        // 动态代理
+//        UserService userService = ServiceProxyFactory.getProxy(UserService.class);
         User user = new User();
         user.setName("nami404");
         // 调用
